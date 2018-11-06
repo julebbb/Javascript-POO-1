@@ -1,5 +1,6 @@
 var table = [];
 
+//user Object
 var user = {
   firstname: "Lilith",
   lastname: "Lithosphère",
@@ -30,7 +31,7 @@ var authorization = {
     if (age < this.minAge) {
       alert("Vous n'êtes pas autorisé à entrée imprudent !");
     } else {
-      alert("Age Ok dessu !");
+      alert("Age Ok !");
     }
   },
   verifCountry: function(country) {
@@ -44,6 +45,8 @@ var authorization = {
   verifPayment: function(payment) {
     for(var i in payment) {
       payment[i] = payment[i].toUpperCase();
+      //if element make in uppercase are in authorization, that's add in a array
+      //and we display that's array if is not empty
       if (this.payment.indexOf(payment[i]) != -1) {
         table.push(payment[i])
       }
@@ -53,6 +56,7 @@ var authorization = {
     } else {
       alert("Tu n'as pas ce qu'il faut pour payer sur le site ! Il te faut : " + this.payment);
     }
+    table = [];
   }
 }
 
@@ -60,6 +64,7 @@ var authorization = {
 // authorization.verifCountry(user.country);
 // authorization.verifPayment(user.payment);
 
+//Display all methode Object
 var verifAll = {
   userverif: user.alertFirstname() + user.alertLastname() + user.alertBirthYear(),
   autorizverif: authorization.verifAge(user.age) + authorization.verifCountry(user.country) + authorization.verifPayment(user.payment)
